@@ -1,1 +1,25 @@
-@import 'base/base';
+%iframepreview {
+  outline: 1px solid red;
+
+  .overlay-area & {
+    outline: 2px solid blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+  }
+}
+
+.iframe-preview1,
+.iframe-preview2 {
+  @extend %iframepreview;
+}
+
+.overlay-area {
+  position: relative;
+
+  iframe:nth-child(2) {
+    mix-blend-mode: difference;
+  }
+}

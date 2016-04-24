@@ -1,19 +1,9 @@
-Starter Environment
+Diff Check
 ---
 
-What's set up here:
+Quickly check the visual difference of two websites. This also works with local sites.
 
-- Sass (LibSass)
-- Autoprefixer
-- CSS Minification
-- JSHint
-- Scss Lint (based on [this](https://github.com/causes/scss-lint/blob/master/config/default.yml) config)
-- HTML Minification
-- BrowserSync
-- Image Minification
-- GH-Pages deployment from dist/ folder
-
-## To Get Started:
+## Getting Started with Contributing:
 
 1. Install node and make sure npm (Node Package Manager) is also [installed](http://blog.nodeknockout.com/post/65463770933/how-to-install-node-js-and-npm)
 2. Clone this repo with `git clone https://github.com/una/gulp-starter-env` (in terminal) or download the zip
@@ -24,26 +14,3 @@ What's set up here:
 7. Edit your Sass code inside of the scss folder. You can make subfolders inside of that to better organize your code. Prefix your sass files with an underscore. More info on using @import to organize your files [here](http://sass-guidelin.es/#main-file)
 8. Your minified files will be automagically created and updated in `dist/`. It will create your optimized css, html, and javascript files for you. Never edit files within the `dist/` folder. (Dist stands for Distribution)
 9. Keep gulp running while you're making changes. When you want to close out of the gulp task, in the terminal, hit `ctrl + C`
-
-## Linting
-
-This linter is the only `ruby` dependency in this project. It is also optional!
-
-File Linting is where you read your file to make sure that your code conforms to standards. You should be doing this continuously.
-
-If you're using a text editor like Sublime, I'd recommend installing `SublimeLinter` and `SublimeLinter-contrib-scss-lint`. You can also lint with gulp inside of your terminal by running `gulp scss-lint`.
-
-## Deploying to gh-pages
-
-You can run `gulp deploy` to push your site onto the gh-pages branch. Then, you can navigate to it via *http://< your-github-username >.github.io/< project-name >* **Note:** this doesn't work if your project name is *< your-github-username  >.github.io*.
-
-## Commonly Confusing Terms
-
-- `cd`: change directory (a terminal command). Make sure you have a space between `cd` and the location you are navigating to
-- `repo`: repository (this is a 'repository' of code)
-- `sudo`: you get access as a 'super user' of your system (you can override permissions)
-- `npm`: node project manager -- the command line task manager that is installing everything inside of `package.json`
-- `package.json`: a file with information about your project. This is also where your list of dependencies lives which npm installs
-- `gulp`: a [task manager](http://gulpjs.com) that is running a bunch of scripts to make this environment work
-- `dist`: distribution folder -- don't edit anything in here. It is where your gulp task builds into
-- `scss`: a Sass syntax that imitates CSS
