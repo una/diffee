@@ -77,6 +77,13 @@ small {
       font-family: 'Input Serif';
       border: none; }
 
+.logo {
+  max-width: 460px;
+  background: white;
+  padding: .5em;
+  padding-left: 200px;
+  margin-left: -220px; }
+
 .overlay-area {
   position: relative;
   display: block;
