@@ -2,24 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Diff Checker</title>
+  <title>Diffee Checker</title>
   <link rel="stylesheet" href="css/main.min.css">
 </head>
 <body>
 
 <main>
-  <h1>Site Diff</h1>
+  <h1 class="title">Diffee</h1>
+  <p class="description">Instant visual diffing with CSS blend modes! Simply enter the sites you want to compare. Locally hosted addresses and files also work (so you can see how your local changes affect current pages or previous versions).</p>
 
-  <div class="preview-area">
-    <iframe class="iframe-preview1 right" src="http://google.com" frameborder="0"></iframe>
-    <iframe class="iframe-preview2 left" src="http://localhost:3000" frameborder="0"></iframe>
-  </div>
+  <h2 class="subtitle">Resources:</h2>
+  <section class="preview-area">
+    <div class="iframe-preview">
+      <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
+      <input type="text" id="input1">
+    </div>
+    <div class="iframe-preview">
+      <iframe class="frame2" src="http://localhost:3000" frameborder="0"></iframe>
+      <input type="text" id="input2">
+    </div>
+  </section>
 
-  <div class="overlay-area">
-    <iframe class="iframe-preview1" src="http://google.com" frameborder="0"></iframe>
-    <iframe class="iframe-preview2" src="http://localhost:3000" frameborder="0"></iframe>
-  </div>
+  <h2 class="subtitle">Visual Diff:</h2>
+  <section class="overlay-area">
+    <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
+    <iframe class="frame2" src="http://localhost:3000" frameborder="0"></iframe>
+  </section>
 </main>
+
+<script>
+  var input1 = document.querySelector('#input1');
+  var data1 = document.querySelectorAll('.frame1');
+  var input2 = document.querySelector('#input2');
+  var data2 = document.querySelector('.frame2');
+
+  input1.addEventListener("input", function() {
+    console.log(this.value, data1);
+    [].forEach.call(data1, function(frame) {
+      frame.src = this.value;
+    });
+  }, false)
+
+</script>
 
 </body>
 </html>
