@@ -11,6 +11,9 @@ body {
   font-family: 'Input Serif', 'Open Sans', 'San Fransisco', sans-serif;
   background-color: #1a416d;
   font-weight: 100; }
+  @media (max-width: 600px) {
+    body {
+      font-size: 16px; } }
 
 footer {
   padding: 1em 0;
@@ -39,6 +42,9 @@ mark {
 p {
   max-width: 40em;
   margin-left: 2em; }
+  @media (max-width: 600px) {
+    p {
+      margin-left: 0em; } }
 
 h2 {
   color: #f16464; }
@@ -55,6 +61,9 @@ small {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
   width: 100%;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -63,6 +72,10 @@ small {
   .preview-area .iframe-preview {
     width: 49%;
     margin-bottom: 1em; }
+    @media (max-width: 600px) {
+      .preview-area .iframe-preview {
+        width: 100%;
+        display: block; } }
     .preview-area .iframe-preview iframe {
       outline: 1px solid black;
       width: 100%;
