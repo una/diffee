@@ -15,11 +15,11 @@
   <section class="preview-area">
     <div class="iframe-preview">
       <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
-      <input type="text" id="input1">
+      <input type="text" id="input1" placeholder=http://una.im>
     </div>
     <div class="iframe-preview">
       <iframe class="frame2" src="http://localhost:3000" frameborder="0"></iframe>
-      <input type="text" id="input2">
+      <input type="text" id="input2" placeholder="http://localhost:3000">
     </div>
   </section>
 
@@ -28,18 +28,32 @@
     <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
     <iframe class="frame2" src="http://localhost:3000" frameborder="0"></iframe>
   </section>
+
+  <h2>What's Going on Here?</h2>
+
+  <p>This website uses the <code>difference</code> blend mode. This blend mode was originally used for lining up transparencies. Similar pixels will turn black. Pixels with visual alteration will change in color using the formula: <code>| a - b |</code> on each RGBA channel.</p>
 </main>
 
+<hr>
+
+<footer class="attribution">Made with love by <a href="http://twitter.com/una">Una</a> | <a href="http://github.com/una/diffee">View Source</a></footer>
 <script>
+  // there must be a way to do this in fewer lines of code:
+
   var input1 = document.querySelector('#input1');
-  var data1 = document.querySelectorAll('.frame1');
+  var frame1 = document.querySelectorAll('.frame1');
   var input2 = document.querySelector('#input2');
-  var data2 = document.querySelector('.frame2');
+  var frame2 = document.querySelector('.frame2');
 
   input1.addEventListener("input", function() {
-    console.log(this.value, data1);
-    [].forEach.call(data1, function(frame) {
-      frame.src = this.value;
+    [].forEach.call(frame1, function(frame) {
+      frame.src = input1.value;
+    });
+  }, false)
+
+  input2.addEventListener("input", function() {
+    [].forEach.call(frame2, function(frame) {
+      frame.src = input2.value;
     });
   }, false)
 
