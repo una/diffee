@@ -24,6 +24,9 @@
   </section>
 
   <h2 class="subtitle">Visual Diff:</h2>
+
+  <small>(If all the pixels are black, both frames are identical)</small>
+
   <section class="overlay-area">
     <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
     <iframe class="frame2" src="http://localhost:3000" frameborder="0"></iframe>
@@ -36,26 +39,26 @@
 
 <hr>
 
-<footer class="attribution">Made with love by <a href="http://twitter.com/una">Una</a> | <a href="http://github.com/una/diffee">View Source</a></footer>
+<footer class="attribution">Made with &hearts; by <a href="http://twitter.com/una">@una</a> | <a href="http://github.com/una/diffee">View Source</a></footer>
 <script>
   // there must be a way to do this in fewer lines of code:
 
   var input1 = document.querySelector('#input1');
   var frame1 = document.querySelectorAll('.frame1');
   var input2 = document.querySelector('#input2');
-  var frame2 = document.querySelector('.frame2');
+  var frame2 = document.querySelectorAll('.frame2');
 
   input1.addEventListener("input", function() {
     [].forEach.call(frame1, function(frame) {
       frame.src = input1.value;
     });
-  }, false)
+  }, false);
 
   input2.addEventListener("input", function() {
     [].forEach.call(frame2, function(frame) {
       frame.src = input2.value;
     });
-  }, false)
+  }, false);
 
 </script>
 

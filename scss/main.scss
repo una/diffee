@@ -1,13 +1,53 @@
-// OVERVIEW
+// VARS
+
+$color--secondary: #4bf;
+$color--bg: #1a416d;
+
+// BASE LAYOUT
 
 * {
   box-sizing: border-box;
 }
 
 body {
+  color: white;
   max-width: 1200px;
   padding: 1em 2em;
   margin: 0 auto;
+  font-size: 20px;
+  line-height: 1.5;
+  font-family: sans-serif;
+  background-color: $color--bg;
+  font-weight: 100;
+}
+
+footer {
+  padding: 1em 0;
+  text-align: center;
+}
+
+a {
+  color: $color--secondary;
+}
+
+// TYPOGRAPHY
+
+code {
+  background: $color--secondary;
+  font-size: .8em;
+  padding: .2em;
+}
+
+h2 {
+  color: $color--secondary;
+}
+
+small {
+  margin-bottom: 2em;
+  display: block;
+  font-style: italic;
+  font-size: 0.75em;
+  margin-top: -2em;
 }
 
 // PREVIEW AREA
@@ -22,7 +62,7 @@ body {
     margin-bottom: 1em;
 
     iframe {
-      outline: #ccc solid 1px;
+      // outline: #ccc solid 1px;
       width: 100%;
       min-height: 40vh;
       overflow: scroll;
@@ -31,7 +71,7 @@ body {
 
     input {
       width: 100%;
-      font-size: 150%;
+      font-size: 120%;
       margin-top: 1em;
       padding: .2em;
     }
@@ -47,7 +87,7 @@ body {
   height: 50vh;
 
   iframe {
-    outline: #ccc solid 1px;
+    // outline: #ccc solid 1px;
     position: absolute;
     top: 0; left: 0;
     width: 100%;
