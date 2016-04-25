@@ -9,9 +9,9 @@
 
 <main>
   <h1 class="title">Diffee</h1>
-  <p class="description">Instant visual diffing with CSS blend modes! Simply enter the sites you want to compare. Locally hosted addresses and files also work (so you can see how your local changes affect current pages or previous versions).</p>
+  <p class="description"><mark>Instant visual diffing with CSS blend modes!</mark><br>Simply enter the sites you want to compare. Locally hosted addresses and files also work (so you can see how your local changes affect current pages or previous versions).</p>
 
-  <h2 class="subtitle">Resources:</h2>
+  <h2 class="subtitle">Comparison Inputs:</h2>
   <section class="preview-area">
     <div class="iframe-preview">
       <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
@@ -34,9 +34,10 @@
 
   <h2>What's Going on Here?</h2>
 
-  <p>This website uses the <code>difference</code> blend mode. This blend mode was originally used for lining up transparencies. Similar pixels will turn black. Pixels with visual alteration will change in color using the formula: <code>| a - b |</code> on each RGBA channel.</p>
+  <p>This website uses the <code>difference</code> blend mode, which is supported on <a href="#">most browsers</a>. Pixels are compared on each RGBA channel between the active layer (second input) and background later (first input). Similar pixels will turn black. Pixels with visual alteration will change in color by taking the absolute value of their difference: <code>|a - b|</code> on each RGBA channel.</p>
 </main>
 
+<br>
 <hr>
 
 <footer class="attribution">Made with &hearts; by <a href="http://twitter.com/una">@una</a> | <a href="http://github.com/una/diffee">View Source</a></footer>

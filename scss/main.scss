@@ -1,6 +1,9 @@
 // VARS
 
+$color--primary: #f16464;
 $color--secondary: #4bf;
+$color--tertiary: #eb6B8f;
+$color--highlight: #ffd400;
 $color--bg: #1a416d;
 
 // BASE LAYOUT
@@ -16,7 +19,7 @@ body {
   margin: 0 auto;
   font-size: 20px;
   line-height: 1.5;
-  font-family: sans-serif;
+  font-family: 'Input Serif', 'Open Sans', 'San Fransisco', sans-serif;
   background-color: $color--bg;
   font-weight: 100;
 }
@@ -27,19 +30,37 @@ footer {
 }
 
 a {
-  color: $color--secondary;
+  color: $color--primary;
 }
 
 // TYPOGRAPHY
 
+::selection {
+  background-color: $color--highlight;
+  color: black;
+}
+
 code {
-  background: $color--secondary;
+  background: $color--primary;
   font-size: .8em;
   padding: .2em;
 }
 
+mark {
+  background-color: $color--highlight;
+  padding: .2em;
+}
+
+h1 {
+}
+
+p {
+  max-width: 40em;
+  margin-left: 2em;
+}
+
 h2 {
-  color: $color--secondary;
+  color: $color--primary;
 }
 
 small {
