@@ -27,7 +27,7 @@
 
   <small>(If all the pixels are black, both frames are identical)</small>
 
-  <section class="overlay-area">
+  <section class="overlay-area" style="overflow: hidden">
     <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
     <iframe class="frame2" src="http://una.im" frameborder="0"></iframe>
   </section>
@@ -49,13 +49,13 @@
   var input2 = document.querySelector('#input2');
   var frame2 = document.querySelectorAll('.frame2');
 
-  input1.addEventListener("input", function() {
+  input1.addEventListener('input', function() {
     [].forEach.call(frame1, function(frame) {
       frame.src = input1.value;
     });
   }, false);
 
-  input2.addEventListener("input", function() {
+  input2.addEventListener('input', function() {
     [].forEach.call(frame2, function(frame) {
       frame.src = input2.value;
     });
