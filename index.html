@@ -42,6 +42,19 @@
 
 <footer class="attribution">Made with &hearts; by <a href="http://twitter.com/una">@una</a> | <a href="http://github.com/una/diffee">View Source</a></footer>
 <script>
+  // webfont
+  WebFontConfig = {
+      google: { families: [ 'Podkova:400,700:latin' ] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+
   // there must be a way to do this in fewer lines of code:
 
   var input1 = document.querySelector('#input1');
