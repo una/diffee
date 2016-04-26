@@ -18,8 +18,9 @@
       <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
     </div>
     <div class="iframe-preview">
-      <input type="text" id="input2" value="http://una.im">
-      <iframe class="frame2" src="http://una.im" frameborder="0"></iframe>
+      <small class="change-note"><img class="arrow-up" src="img/arrowup.svg" alt=""> Change me!</small>
+      <input type="text" id="input2" value="http://una.im/diffeedemo">
+      <iframe class="frame2" src="http://una.im/diffeedemo" frameborder="0"></iframe>
     </div>
   </section>
 
@@ -27,10 +28,16 @@
 
   <small>(If all the pixels are black, both frames are identical)</small>
 
-  <section class="overlay-area" style="overflow: hidden">
+  <br>
+
+  <section class="overlay-area">
     <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
-    <iframe class="frame2" src="http://una.im" frameborder="0"></iframe>
+    <iframe class="frame2" src="http://una.im/diffeedemo" frameborder="0"></iframe>
   </section>
+
+  <small class="resize-note">Resize me! &nbsp;<img class="arrow-up" src="img/arrowup.svg" alt=""></small>
+
+  <br>
 
   <h2>What's Going on Here?</h2>
 
@@ -56,7 +63,6 @@
     })();
 
   // there must be a way to do this in fewer lines of code:
-
   var input1 = document.querySelector('#input1');
   var frame1 = document.querySelectorAll('.frame1');
   var input2 = document.querySelector('#input2');
@@ -73,7 +79,6 @@
       frame.src = input2.value;
     });
   }, false);
-
 </script>
 
 </body>
