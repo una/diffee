@@ -80,6 +80,7 @@ small {
       -ms-flex-pack: justify;
           justify-content: space-between; }
   .preview-area .iframe-preview {
+    position: relative;
     width: 49%;
     margin-bottom: 1em; }
     @media (max-width: 600px) {
@@ -103,18 +104,34 @@ small {
 .logo {
   max-width: 260px; }
 
+.resize-note {
+  float: right; }
+
+.change-note {
+  position: absolute;
+  top: -.5em;
+  left: 1em; }
+  .change-note .arrow-up {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
+
+.arrow-up {
+  width: 1em; }
+
 .overlay-area {
   position: relative;
-  display: block;
-  width: 100%;
-  height: 80vh; }
+  overflow: auto;
+  min-height: 70vh;
+  resize: both;
+  cursor: nwse-resize; }
   .overlay-area iframe {
     outline: 1px solid #f16464;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 80vh;
-    background-color: white; }
+    height: 100%;
+    background-color: white;
+    pointer-events: none; }
     .overlay-area iframe:nth-child(2) {
       mix-blend-mode: difference; }
