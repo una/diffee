@@ -1,4 +1,17 @@
 <!DOCTYPE html><html lang=en><head><meta charset=UTF-8><title>Diffee Checker</title><link rel=stylesheet href=css/main.min.css></head><body><main><img class=logo src=img/diffee-logo.svg alt=Diffee><p class=description><mark>Instant visual diffing with CSS blend modes!</mark><br>Simply enter the sites you want to compare. Locally hosted addresses and files also work (so you can see how your local changes affect current pages or previous versions).</p><h2 class=subtitle>Comparison Inputs:</h2><section class=preview-area><div class=iframe-preview><input type=text id=input1 value=http://una.im><iframe class=frame1 src=http://una.im frameborder=0></iframe></div><div class=iframe-preview><input type=text id=input2 value=http://una.im><iframe class=frame2 src=http://una.im frameborder=0></iframe></div></section><h2 class=subtitle>Visual Diff:</h2><small>(If all the pixels are black, both frames are identical)</small><section class=overlay-area style="overflow: hidden"><iframe class=frame1 src=http://una.im frameborder=0></iframe><iframe class=frame2 src=http://una.im frameborder=0></iframe></section><h2>What's Going on Here?</h2><p>This website uses the <code>difference</code> blend mode, which is supported on <a href=#>most browsers</a>. Pixels are compared on each RGBA channel between the active layer (second input) and background later (first input). Similar pixels will turn black. Pixels with visual alteration will change in color by taking the absolute value of their difference: <code>|a - b|</code> on each RGBA channel.</p></main><br><hr><footer class=attribution>Made with &hearts; by <a href=http://twitter.com/una>@una</a> | <a href=http://github.com/una/diffee>View Source</a></footer><script>
+  // webfont
+  WebFontConfig = {
+      google: { families: [ 'Podkova:400,700:latin' ] }
+    };
+    (function() {
+      var wf = document.createElement('script');
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+    })();
+
   // there must be a way to do this in fewer lines of code:
 
   var input1 = document.querySelector('#input1');

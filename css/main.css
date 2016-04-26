@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Exo 2';
+  src: url("../fonts/Exo2-200.ttf") format("truetype");
+  font-weight: 200; }
+
+@font-face {
+  font-family: 'Exo 2';
+  src: url("../fonts/Exo2-800.ttf") format("truetype");
+  font-weight: 800; }
+
 * {
   box-sizing: border-box; }
 
@@ -6,14 +16,14 @@ body {
   max-width: 1200px;
   padding: 1em 2em;
   margin: 0 auto;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.5;
-  font-family: 'Input Serif', 'Open Sans', 'San Fransisco', sans-serif;
+  font-family: 'Exo 2', 'Open Sans', 'San Fransisco', sans-serif;
   background-color: #1a416d;
   font-weight: 100; }
   @media (max-width: 600px) {
     body {
-      font-size: 16px; } }
+      font-size: 18px; } }
 
 footer {
   padding: 1em 0;
@@ -40,21 +50,21 @@ mark {
   padding: .2em; }
 
 p {
-  max-width: 40em;
+  max-width: 34em;
   margin-left: 2em; }
   @media (max-width: 600px) {
     p {
       margin-left: 0em; } }
 
 h2 {
-  color: #f16464; }
+  color: #f16464;
+  margin-bottom: 0; }
 
 small {
   margin-bottom: 2em;
   display: block;
   font-style: italic;
-  font-size: 0.75em;
-  margin-top: -2em; }
+  font-size: 0.75em; }
 
 .preview-area {
   display: -webkit-box;
@@ -87,28 +97,24 @@ small {
       margin-top: 1em;
       font-size: 1em;
       padding: .4em;
-      font-family: 'Input Serif';
+      font-family: 'Exo 2';
       border: none; }
 
 .logo {
-  max-width: 460px;
-  background: white;
-  padding: .5em;
-  padding-left: 200px;
-  margin-left: -220px; }
+  max-width: 260px; }
 
 .overlay-area {
   position: relative;
   display: block;
   width: 100%;
-  height: 65vh; }
+  height: 80vh; }
   .overlay-area iframe {
     outline: 1px solid #f16464;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 65vh;
+    min-height: 80vh;
     background-color: white; }
     .overlay-area iframe:nth-child(2) {
       mix-blend-mode: difference; }
