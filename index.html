@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><title>Diffee Checker</title><link rel=stylesheet href=css/main.min.css></head><body><main><img class=logo src=img/diffee-logo.svg alt=Diffee><p class=description><mark>Instant visual diffing with CSS blend modes!</mark><br>Simply enter the sites you want to compare. Locally hosted addresses and files also work (so you can see how your local changes affect current pages or previous versions).</p><h2 class=subtitle>Comparison Inputs:</h2><section class=preview-area><div class=iframe-preview><input type=text id=input1 value=http://una.im><iframe class=frame1 src=http://una.im frameborder=0></iframe></div><div class=iframe-preview><small class=change-note><img class=arrow-up src=img/arrowup.svg> Change me!</small> <input type=text id=input2 value=http://una.im/diffeedemo><iframe class=frame2 src=http://una.im/diffeedemo frameborder=0></iframe></div></section><h2 class=subtitle>Visual Diff:</h2><small>(If all the pixels are black, both frames are identical)</small><br><section class=overlay-area><iframe class=frame1 src=http://una.im frameborder=0></iframe><iframe class=frame2 src=http://una.im/diffeedemo frameborder=0></iframe></section><small class=resize-note>Resize me! &nbsp;<img class=arrow-up src=img/arrowup.svg></small><br><h2>What's Going on Here?</h2><p>This website uses the <code>difference</code> blend mode, which is supported on <a href="http://caniuse.com/#feat=css-mixblendmode">most browsers</a>. Pixels are compared on each RGBA channel between the active layer (second input) and background later (first input). Similar pixels will turn black. Pixels with visual alteration will change in color by taking the absolute value of their difference: <code>|a - b|</code> on each RGBA channel.</p></main><br><hr><footer class=attribution>Made with &hearts; by <a href=http://twitter.com/una>@una</a> | <a href=http://github.com/una/diffee>View Source</a></footer><script>
+<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><title>Diffee Checker</title><link rel=stylesheet href=css/main.min.css></head><body><main><img class=logo src=img/diffee-logo.svg alt=Diffee><p class=description><mark>Instant visual diffing with CSS blend modes!</mark><br>Simply enter the sites you want to compare. Locally hosted addresses and files also work (so you can see how your local changes affect current pages or previous versions).</p><h2 class=subtitle>Comparison Inputs:</h2><section class=preview-area><div class=iframe-preview><input type=text id=input1 value=http://una.im><iframe class=frame1 src=http://una.im frameborder=0></iframe></div><div class=iframe-preview><small class=change-note><img class=arrow-up src=img/arrowup.svg> Change me!</small> <input type=text id=input2 value=http://una.im/diffeedemo><iframe class=frame2 src=http://una.im/diffeedemo frameborder=0></iframe></div></section><h2 class=subtitle>Visual Diff:</h2><small>(If all the pixels are black, both frames are identical)</small><br><section class=overlay-area><iframe class=frame1 src=http://una.im frameborder=0></iframe><iframe class=frame2 src=http://una.im/diffeedemo frameborder=0></iframe></section><small class=resize-note>Resize me! &nbsp;<img class=arrow-up src=img/arrowup.svg></small><br><h2>What's Going on Here?</h2><p>This website uses the <code>difference</code> blend mode, which is supported on <a href="http://caniuse.com/#feat=css-mixblendmode">most browsers</a>. Pixels are compared on each RGBA channel between the active layer (second input) and background later (first input). Similar pixels will turn black. Pixels with visual alteration will change in color by taking the absolute value of their difference: <code>|a - b|</code> on each RGBA channel.</p></main><br><hr><footer class=attribution>Made with &hearts; by <a href=https://twitter.com/una>@una</a> | <a href=https://github.com/una/diffee>View Source</a></footer><script>
+
   // webfont
   WebFontConfig = {
       google: { families: [ 'Podkova:400,700:latin' ] }
@@ -21,21 +22,52 @@
   ga('create', 'UA-36758177-2', 'auto');
   ga('send', 'pageview');
 
-  // there must be a way to do this in fewer lines of code:
+  // shared vars
   var input1 = document.querySelector('#input1');
   var frame1 = document.querySelectorAll('.frame1');
   var input2 = document.querySelector('#input2');
   var frame2 = document.querySelectorAll('.frame2');
+  var myURL = document.location;
 
+  // query URL
+  (function hasURLQuery(url){
+    if (window.location.search) {
+      var rawInput = window.location.search
+      var inputSplit = rawInput.split(/[??]/);
+      console.log(inputSplit[1], inputSplit[2]);
+
+      [].forEach.call(frame1, function(frame) {
+        input1.value = inputSplit[1];
+        frame.src = inputSplit[1];
+      });
+
+      [].forEach.call(frame2, function(frame) {
+        input2.value = inputSplit[2];
+        frame.src = inputSplit[2];
+      });
+    }
+  })();
+
+  // Update on text change:
   input1.addEventListener('input', function() {
     [].forEach.call(frame1, function(frame) {
       frame.src = input1.value;
+      updateURL(input1.value, input2.value)
     });
   }, false);
 
   input2.addEventListener('input', function() {
     [].forEach.call(frame2, function(frame) {
       frame.src = input2.value;
+      updateURL(input1.value, input2.value)
     });
   }, false);
+
+  // Update URL
+  function updateURL(input1, input2) {
+    if (history.pushState) {
+      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + input1 + '?' + input2;
+        window.history.pushState({path:newurl},'',newurl);
+    }
+  }
 </script></body></html>
