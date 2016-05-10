@@ -77,6 +77,7 @@
   var frame1 = document.querySelectorAll('.frame1');
   var input2 = document.querySelector('#input2');
   var frame2 = document.querySelectorAll('.frame2');
+  var myURL = document.location;
 
   // query URL
   (function hasURLQuery(url){
@@ -98,18 +99,27 @@
   })();
 
   // Update on text change:
-
   input1.addEventListener('input', function() {
     [].forEach.call(frame1, function(frame) {
       frame.src = input1.value;
+      updateURL(input1.value, input2.value)
     });
   }, false);
 
   input2.addEventListener('input', function() {
     [].forEach.call(frame2, function(frame) {
       frame.src = input2.value;
+      updateURL(input1.value, input2.value)
     });
   }, false);
+
+  // Update URL
+  function updateURL(input1, input2) {
+    if (history.pushState) {
+      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + input1 + '?' + input2;
+        window.history.pushState({path:newurl},'',newurl);
+    }
+  }
 </script>
 
 </body>
