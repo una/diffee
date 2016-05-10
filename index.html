@@ -49,6 +49,7 @@
 
 <footer class="attribution">Made with &hearts; by <a href="https://twitter.com/una">@una</a> | <a href="https://github.com/una/diffee">View Source</a></footer>
 <script>
+
   // webfont
   WebFontConfig = {
       google: { families: [ 'Podkova:400,700:latin' ] }
@@ -71,11 +72,32 @@
   ga('create', 'UA-36758177-2', 'auto');
   ga('send', 'pageview');
 
-  // there must be a way to do this in fewer lines of code:
+  // shared vars
   var input1 = document.querySelector('#input1');
   var frame1 = document.querySelectorAll('.frame1');
   var input2 = document.querySelector('#input2');
   var frame2 = document.querySelectorAll('.frame2');
+
+  // query URL
+  (function hasURLQuery(url){
+    if (window.location.search) {
+      var rawInput = window.location.search
+      var inputSplit = rawInput.split(/[??]/);
+      console.log(inputSplit[1], inputSplit[2]);
+
+      [].forEach.call(frame1, function(frame) {
+        input1.value = inputSplit[1];
+        frame.src = inputSplit[1];
+      });
+
+      [].forEach.call(frame2, function(frame) {
+        input2.value = inputSplit[2];
+        frame.src = inputSplit[2];
+      });
+    }
+  })();
+
+  // Update on text change:
 
   input1.addEventListener('input', function() {
     [].forEach.call(frame1, function(frame) {
