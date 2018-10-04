@@ -2,7 +2,8 @@
   "name": "diffee",
   "version": "0.1.0",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "build": "gulp build"
   },
   "dependencies": {},
   "devDependencies": {
