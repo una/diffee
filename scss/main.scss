@@ -153,14 +153,13 @@ small {
   width: 1em;
 }
 
-// overlay area
+// OVERLAY AREA
+
 .overlay-area {
   position: relative;
   overflow: auto;
-  // width: 10px;
   min-height: $iframe-height;
-  resize: both;
-  cursor: nwse-resize;
+  cursor: pointer;
 
   iframe {
     outline: 1px solid $color--primary;
@@ -173,6 +172,26 @@ small {
 
     &:nth-child(2) {
       mix-blend-mode: difference;
+    }
+  }
+}
+
+// switch hack https://stackoverflow.com/a/32721572/4266494
+// fullscreen https://stackoverflow.com/a/28590801/4266494
+#fullscreen {
+  display: none;
+
+  // when fullscreen on
+  &:checked + label[for="fullscreen"] {
+    .overlay-area {
+      z-index: 9999;
+      width: 100%;
+      min-width: 100vh;
+      height: 100%;
+      min-height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
     }
   }
 }
