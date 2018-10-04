@@ -30,12 +30,15 @@
 
   <br>
 
-  <section class="overlay-area">
-    <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
-    <iframe class="frame2" src="http://una.im/diffeedemo" frameborder="0"></iframe>
-  </section>
+  <input type="checkbox" id="fullscreen" />
+  <label for="fullscreen">
+    <section class="overlay-area">
+      <iframe class="frame1" src="http://una.im" frameborder="0"></iframe>
+      <iframe class="frame2" src="http://una.im/diffeedemo" frameborder="0"></iframe>
+    </section>
+  </label>
 
-  <small class="resize-note">Resize me! &nbsp;<img class="arrow-up" src="img/arrowup.svg" alt=""></small>
+  <small class="resize-note">Fullscreenize me! &nbsp;<img class="arrow-up" src="img/arrowup.svg" alt=""></small>
 
   <br>
 
@@ -77,6 +80,7 @@
   var frame1 = document.querySelectorAll('.frame1');
   var input2 = document.querySelector('#input2');
   var frame2 = document.querySelectorAll('.frame2');
+  var fullscreen = document.querySelector('#fullscreen');
   var myURL = document.location;
 
   // query URL
@@ -84,7 +88,9 @@
     if (window.location.search) {
       var rawInput = window.location.search
       var inputSplit = rawInput.split(/[??]/);
-      console.log(inputSplit[1], inputSplit[2]);
+      var options = inputSplit.slice(3);
+      console.log('urls:', inputSplit[1], inputSplit[2]);
+      console.log('options:', options);
 
       [].forEach.call(frame1, function(frame) {
         input1.value = inputSplit[1];
@@ -95,29 +101,41 @@
         input2.value = inputSplit[2];
         frame.src = inputSplit[2];
       });
+
+      if (options.includes('full')) {
+        fullscreen.checked = true;
+      }
     }
   })();
 
-  // Update on text change:
+  // Update on text change
   input1.addEventListener('input', function() {
     [].forEach.call(frame1, function(frame) {
       frame.src = input1.value;
-      updateURL(input1.value, input2.value)
+      updateURL();
     });
   }, false);
 
   input2.addEventListener('input', function() {
     [].forEach.call(frame2, function(frame) {
       frame.src = input2.value;
-      updateURL(input1.value, input2.value)
+      updateURL();
     });
   }, false);
 
+  // Update on fullscreen change
+  fullscreen.addEventListener('click', function() {
+    updateURL();
+  }, false);
+
   // Update URL
-  function updateURL(input1, input2) {
+  function updateURL() {
     if (history.pushState) {
-      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + input1 + '?' + input2;
-        window.history.pushState({path:newurl},'',newurl);
+      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + input1.value + '?' + input2.value;
+      if (fullscreen.checked) {
+        newurl += '?full';
+      }
+      window.history.pushState({path:newurl},'',newurl);
     }
   }
 </script>
